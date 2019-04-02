@@ -4,7 +4,7 @@ namespace Citadel.Sdl
 {
     internal sealed class SdlException : Exception
     {
-        public SdlException()
+        public SdlException() : base(Interop.SDL_GetError())
         {
         }
 
