@@ -3,7 +3,7 @@
 namespace Citadel.Sdl
 {
     [Flags]
-    internal enum WindowFlags
+    internal enum WindowFlags : uint
     {
         None = 0x00000000,
         Fullscreen = 0x00000001,

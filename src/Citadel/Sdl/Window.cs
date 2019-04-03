@@ -2,30 +2,29 @@
 
 namespace Citadel.Sdl
 {
-    internal sealed class Window : IDisposable
+    internal sealed class Window : ObjectBase
     {
-        private IntPtr _data;
-
         public const int UndefinedWindowPosition = 0x1FFF0000;
 
-        public Window(IntPtr data)
+        public Window(IntPtr data) : base(data)
         {
-            _data = data;
         }
 
-        private void ThrowIfDisposed()
+        protected override void FreeData()
         {
-            if (_data == IntPtr.Zero)
-            {
-                throw new ObjectDisposedException(nameof(Window));
-            }
+            Interop.SDL_DestroyWindow(Data);
         }
 
-        public void Dispose()
+        public Surface GetSurface()
         {
             ThrowIfDisposed();
-            Interop.SDL_DestroyWindow(_data);
-            _data = IntPtr.Zero;
+            return new Surface(Interop.SDL_GetWindowSurface(Data));
+        }
+
+        public void UpdateSurface()
+        {
+            ThrowIfDisposed();
+            Interop.CheckError(Interop.SDL_UpdateWindowSurface(Data));
         }
     }
 }
