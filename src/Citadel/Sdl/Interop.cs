@@ -18,7 +18,7 @@ namespace Citadel.Sdl
 
         public static IntPtr CheckPointer(IntPtr ret) => (ret == IntPtr.Zero) ? throw new SdlException() : ret;
 
-        public static byte[] ToUtf8(this string s) => s == null ? null : Encoding.UTF8.GetBytes(s + '\0');
+        public static byte[] ToUtf8(this string s) => Encoding.UTF8.GetBytes(s + '\0');
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr SDL_CreateRenderer(IntPtr window, int index, RendererFlags flags);
@@ -71,7 +71,7 @@ namespace Citadel.Sdl
         public static extern int SDL_RenderClear(IntPtr renderer);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int SDL_RenderCopy(IntPtr renderer, IntPtr texture, Rectangle srcrect, Rectangle dstrect);
+        public static extern int SDL_RenderCopy(IntPtr renderer, IntPtr texture, Rectangle? srcrect, Rectangle? dstrect);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
         public static extern void SDL_RenderPresent(IntPtr renderer);

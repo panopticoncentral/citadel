@@ -25,7 +25,7 @@ namespace Citadel.Sdl
             Interop.CheckError(Interop.SDL_RenderClear(Data));
         }
 
-        public void Copy(Texture texture, Rectangle source, Rectangle destination)
+        public void Copy(Texture texture, Rectangle? source, Rectangle? destination)
         {
             ThrowIfDisposed();
             Interop.CheckError(Interop.SDL_RenderCopy(Data, texture.Data, source, destination));
