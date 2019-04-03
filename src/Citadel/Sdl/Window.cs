@@ -18,13 +18,19 @@ namespace Citadel.Sdl
         public Surface GetSurface()
         {
             ThrowIfDisposed();
-            return new Surface(Interop.SDL_GetWindowSurface(Data));
+            return new Surface(Interop.SDL_GetWindowSurface(Data), false);
         }
 
         public void UpdateSurface()
         {
             ThrowIfDisposed();
             Interop.CheckError(Interop.SDL_UpdateWindowSurface(Data));
+        }
+
+        public Renderer CreateRenderer(int index, RendererFlags flags)
+        {
+            ThrowIfDisposed();
+            return new Renderer(Interop.CheckPointer(Interop.SDL_CreateRenderer(Data, index, flags)));
         }
     }
 }

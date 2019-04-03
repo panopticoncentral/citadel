@@ -11,11 +11,8 @@ namespace Citadel.Sdl
 
         public event EventHandler<WindowEventArgs> OnWindowEvent;
 
-        public Window CreateWindow(string title, int x, int y, int width, int height, WindowFlags flags)
-        {
-            var data = Interop.SDL_CreateWindow(title.ToUtf8(), x, y, width, height, flags);
-            return data == IntPtr.Zero ? throw new SdlException() : new Window(data);
-        }
+        public Window CreateWindow(string title, int x, int y, int width, int height, WindowFlags flags) =>
+            new Window(Interop.CheckPointer(Interop.SDL_CreateWindow(title.ToUtf8(), x, y, width, height, flags)));
 
         public void Delay(uint milliseconds) => Interop.SDL_Delay(milliseconds);
 
@@ -33,6 +30,9 @@ namespace Citadel.Sdl
                     break;
             }
         }
+
+        public Surface LoadBitmap(string file) =>
+            new Surface(Interop.CheckPointer(Interop.SDL_LoadBMP(file)));
 
         public void Dispose()
         {

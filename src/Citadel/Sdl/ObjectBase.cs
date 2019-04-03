@@ -4,11 +4,14 @@ namespace Citadel.Sdl
 {
     internal abstract class ObjectBase : IDisposable
     {
+        private bool _shouldFree;
+
         public IntPtr Data { get; private set; }
 
-        protected ObjectBase(IntPtr data)
+        protected ObjectBase(IntPtr data, bool shouldFree = true)
         {
             Data = data;
+            _shouldFree = shouldFree;
         }
 
         protected void ThrowIfDisposed()
@@ -26,7 +29,10 @@ namespace Citadel.Sdl
         public void Dispose()
         {
             ThrowIfDisposed();
-            FreeData();
+            if (_shouldFree)
+            {
+                FreeData();
+            }
             Data = IntPtr.Zero;
         }
     }

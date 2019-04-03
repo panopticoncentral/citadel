@@ -14,12 +14,20 @@ namespace Citadel.Sdl
             }
         }
 
-        public Surface(IntPtr data) : base(data)
+        public Surface(IntPtr data, bool shouldFree = true) : base(data, shouldFree)
         {
         }
 
-        public void FillRectangle(Rectangle rectangle, Color color) => 
+        public void FillRectangle(Rectangle rectangle, Color color)
+        {
+            ThrowIfDisposed();
             Interop.CheckError(Interop.SDL_FillRect(Data, ref rectangle, color));
+        }
+
+        protected override void FreeData()
+        {
+            Interop.SDL_FreeSurface(Data);
+        }
 
         [StructLayout(LayoutKind.Sequential)]
         private struct SDL_Surface

@@ -5,21 +5,22 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <AssemblyName>cgs</AssemblyName>
     <LangVersion>preview</LangVersion>
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="..\..\lib\SDL2\lib\x64\SDL2.dll" Link="SDL2.dll">
+    <None Remove="test.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="test.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\lib\SDL2\lib\x86\SDL2.dll" Link="SDL2.dll" />
   </ItemGroup>
 
 </Project>

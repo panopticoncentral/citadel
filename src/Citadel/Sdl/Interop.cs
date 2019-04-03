@@ -16,8 +16,16 @@ namespace Citadel.Sdl
             }
         }
 
+        public static IntPtr CheckPointer(IntPtr ret) => (ret == IntPtr.Zero) ? throw new SdlException() : ret;
+
         public static byte[] ToUtf8(this string s) => s == null ? null : Encoding.UTF8.GetBytes(s + '\0');
 
+        [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr SDL_CreateRenderer(IntPtr window, int index, RendererFlags flags);
+
+        [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr SDL_CreateTextureFromSurface(IntPtr renderer, IntPtr surface);
+        
         [DllImport(Sdl2, EntryPoint = "SDL_CreateWindow", CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr SDL_CreateWindow(byte[] title, int x, int y, int w, int h, WindowFlags flags);
 
@@ -25,10 +33,19 @@ namespace Citadel.Sdl
         public static extern void SDL_Delay(uint ms);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SDL_DestroyRenderer(IntPtr renderer);
+
+        [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SDL_DestroyTexture(IntPtr texture);
+
+        [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
         public static extern void SDL_DestroyWindow(IntPtr window);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SDL_FillRect(IntPtr dst, ref Rectangle rect, Color color);
+
+        [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SDL_FreeSurface(IntPtr surface);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
         public static extern string SDL_GetError();
@@ -43,7 +60,24 @@ namespace Citadel.Sdl
         public static extern int SDL_Init(InitializationFlags flags);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr SDL_LoadBMP_RW(IntPtr src, bool freesrc);
+
+        public static IntPtr SDL_LoadBMP(string file) => SDL_LoadBMP_RW(SDL_RWFromFile(file.ToUtf8(), "rb".ToUtf8()), true);
+
+        [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDL_RenderClear(IntPtr renderer);
+
+        [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int SDL_RenderCopy(IntPtr renderer, IntPtr texture, ref Rectangle srcrect, ref Rectangle dstrect);
+
+        [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void SDL_RenderPresent(IntPtr renderer);
+
+        [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
         public static extern void SDL_Quit();
+
+        [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr SDL_RWFromFile(byte[] file, byte[] mode);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SDL_UpdateWindowSurface(IntPtr window);
