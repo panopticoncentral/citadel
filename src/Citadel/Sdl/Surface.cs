@@ -21,7 +21,7 @@ namespace Citadel.Sdl
         public void FillRectangle(Rectangle rectangle, Color color)
         {
             ThrowIfDisposed();
-            Interop.CheckError(Interop.SDL_FillRect(Data, ref rectangle, color));
+            Interop.CheckError(Interop.SDL_FillRect(Data, rectangle, color));
         }
 
         protected override void FreeData()

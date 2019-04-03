@@ -42,7 +42,7 @@ namespace Citadel.Sdl
         public static extern void SDL_DestroyWindow(IntPtr window);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int SDL_FillRect(IntPtr dst, ref Rectangle rect, Color color);
+        public static extern int SDL_FillRect(IntPtr dst, Rectangle rect, Color color);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
         public static extern void SDL_FreeSurface(IntPtr surface);
@@ -68,7 +68,7 @@ namespace Citadel.Sdl
         public static extern int SDL_RenderClear(IntPtr renderer);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int SDL_RenderCopy(IntPtr renderer, IntPtr texture, ref Rectangle srcrect, ref Rectangle dstrect);
+        public static extern int SDL_RenderCopy(IntPtr renderer, IntPtr texture, Rectangle srcrect, Rectangle dstrect);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
         public static extern void SDL_RenderPresent(IntPtr renderer);

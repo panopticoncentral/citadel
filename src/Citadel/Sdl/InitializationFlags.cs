@@ -3,7 +3,7 @@
 namespace Citadel.Sdl
 {
     [Flags]
-    internal enum InitializationFlags
+    internal enum InitializationFlags : uint
     {
         Timer = 0x00000001,
         Audio = 0x00000010,
