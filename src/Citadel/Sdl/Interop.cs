@@ -65,6 +65,9 @@ namespace Citadel.Sdl
         public static IntPtr SDL_LoadBMP(string file) => SDL_LoadBMP_RW(SDL_RWFromFile(file.ToUtf8(), "rb".ToUtf8()), true);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool SDL_PollEvent(out Event @event);
+
+        [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]
         public static extern int SDL_RenderClear(IntPtr renderer);
 
         [DllImport(Sdl2, CallingConvention = CallingConvention.Cdecl)]

@@ -6,6 +6,7 @@ namespace Citadel
     {
         private static Sdl2 s_sdl2;
         private static Window s_window;
+        private static bool s_quit;
 
         public static void Main()
         {
@@ -15,14 +16,24 @@ namespace Citadel
             using (var testBitmap = s_sdl2.LoadBitmap("test.bmp"))
             using (var texture = renderer.CreateTextureFromSurface(testBitmap))
             {
-                for (var i = 0; i < 3; i++)
+                s_sdl2.OnQuitEvent += OnQuitEvent;
+
+                while (!s_quit)
                 {
+                    while (s_sdl2.PollEvent())
+                    {
+                    }
+
                     renderer.Clear();
                     renderer.Copy(texture, null, null);
                     renderer.Present();
-                    s_sdl2.Delay(2000);
                 }
             }
+        }
+
+        private static void OnQuitEvent(object sender, System.EventArgs e)
+        {
+            s_quit = true;
         }
     }
 }
