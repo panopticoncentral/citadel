@@ -1,0 +1,6 @@
+[submodule "lib\\sdl-sharp"]
+	path = lib\\sdl-sharp
+	url = https://github.com/panopticoncentral/sdl-sharp
+[submodule "lib\\libcgs"]
+	path = lib\\libcgs
+	url = https://github.com/panopticoncentral/libcgs
