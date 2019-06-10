@@ -11,7 +11,9 @@ namespace Anvil
             Sdl.Initialize(Subsystems.Video);
             Image.Initialize(ImageFormats.Png);
 
-            new Console();
+            using var console = new Console((80, 60));
+            console.Render();
+            Timer.Delay(10000);
 
             Image.Quit();
             Sdl.Quit();
