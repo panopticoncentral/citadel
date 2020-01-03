@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29002.38
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anvil", "src\Anvil\Anvil.csproj", "{996799ED-C71A-4892-A7DF-6AA2F66FD93C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SdlSharp", "lib\sdl-sharp\src\SdlSharp\SdlSharp.csproj", "{27330A67-0B9D-40E1-B35E-5CB41F99377F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anvil", "src\Anvil\Anvil.csproj", "{996799ED-C71A-4892-A7DF-6AA2F66FD93C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "libcgs", "lib\libcgs\src\libcgs\libcgs.csproj", "{0DCAD071-3A5F-4D0D-A90A-89067ECAE95B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Citadel", "src\Citadel\Citadel.csproj", "{59A3E267-35E3-449E-8A04-7625270EB9F1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SdlSharp", "lib\libcgs\lib\sdl-sharp\src\SdlSharp\SdlSharp.csproj", "{D5539B73-F4D7-4A64-820F-D7D14CB7C602}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +21,18 @@ Global
 		{996799ED-C71A-4892-A7DF-6AA2F66FD93C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{996799ED-C71A-4892-A7DF-6AA2F66FD93C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{996799ED-C71A-4892-A7DF-6AA2F66FD93C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{27330A67-0B9D-40E1-B35E-5CB41F99377F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27330A67-0B9D-40E1-B35E-5CB41F99377F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27330A67-0B9D-40E1-B35E-5CB41F99377F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{27330A67-0B9D-40E1-B35E-5CB41F99377F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0DCAD071-3A5F-4D0D-A90A-89067ECAE95B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0DCAD071-3A5F-4D0D-A90A-89067ECAE95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DCAD071-3A5F-4D0D-A90A-89067ECAE95B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DCAD071-3A5F-4D0D-A90A-89067ECAE95B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59A3E267-35E3-449E-8A04-7625270EB9F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59A3E267-35E3-449E-8A04-7625270EB9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59A3E267-35E3-449E-8A04-7625270EB9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59A3E267-35E3-449E-8A04-7625270EB9F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5539B73-F4D7-4A64-820F-D7D14CB7C602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5539B73-F4D7-4A64-820F-D7D14CB7C602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5539B73-F4D7-4A64-820F-D7D14CB7C602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5539B73-F4D7-4A64-820F-D7D14CB7C602}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Nullable>enable</Nullable>
     <PlatformTarget>x64</PlatformTarget>
-    <RootNamespace>Anvil</RootNamespace>
+    <RootNamespace>Citadel</RootNamespace>
   </PropertyGroup>
 
   <Import Project="..\..\lib\sdl.targets" />
@@ -13,6 +13,21 @@
   <ItemGroup>
     <ProjectReference Include="..\..\lib\libcgs\lib\sdl-sharp\src\SdlSharp\SdlSharp.csproj" />
     <ProjectReference Include="..\..\lib\libcgs\src\libcgs\libcgs.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
