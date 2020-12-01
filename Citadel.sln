@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29002.38
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anvil", "src\Anvil\Anvil.csproj", "{996799ED-C71A-4892-A7DF-6AA2F66FD93C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "libcgs", "lib\libcgs\src\libcgs\libcgs.csproj", "{0DCAD071-3A5F-4D0D-A90A-89067ECAE95B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Citadel", "src\Citadel\Citadel.csproj", "{59A3E267-35E3-449E-8A04-7625270EB9F1}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{996799ED-C71A-4892-A7DF-6AA2F66FD93C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{996799ED-C71A-4892-A7DF-6AA2F66FD93C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{996799ED-C71A-4892-A7DF-6AA2F66FD93C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{996799ED-C71A-4892-A7DF-6AA2F66FD93C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0DCAD071-3A5F-4D0D-A90A-89067ECAE95B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0DCAD071-3A5F-4D0D-A90A-89067ECAE95B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DCAD071-3A5F-4D0D-A90A-89067ECAE95B}.Release|Any CPU.ActiveCfg = Release|Any CPU

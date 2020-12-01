@@ -1,4 +1,5 @@
 ﻿using Citadel;
+
 using SdlSharp;
 using SdlSharp.Graphics;
 using SdlSharp.Input;
@@ -37,7 +38,7 @@ namespace Tutorial
                     map[(x, y)] = y == 22 && x >= 30 && x <= 32 ? wallTerrain : floorTerrain;
                 }
             }
-            
+
             var player = new Character((s_mapSize.Width / 2, s_mapSize.Height / 2), new Tile(characterTileset, s_playerTile));
             map.AddCharacter(player);
 
